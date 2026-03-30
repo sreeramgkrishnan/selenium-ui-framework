@@ -12,6 +12,7 @@ public class DriverFactory {
             default -> throw new IllegalArgumentException("Browser not supported");
         };
         DriverManager.setDriver(driver);
+        driver.manage().window().maximize();
         return driver;
     }
 }
