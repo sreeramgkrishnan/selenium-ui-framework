@@ -11,10 +11,9 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
         String browser = ConfigReader.getProperty("browser");
-        String URL = ConfigReader.getProperty("appURL");
         Browser browserType = Browser.valueOf(browser.toUpperCase());
-        DriverFactory.initDriver(browserType.getBrowser());
-        DriverManager.getDriver().get(URL);
+        DriverFactory.initDriver(browserType);
+        DriverManager.getDriver().get(ConfigReader.getProperty("appURL"));
     }
 
     @AfterMethod
